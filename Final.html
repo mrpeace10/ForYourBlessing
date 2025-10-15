@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dear Mr. Klyder — A Request With Respect</title>
+  <meta name="description" content="A heartfelt, cinematic page where Shalom respectfully asks Mr. John Klyder for his blessing to get engaged to Emily." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-dark: #0e0d0c;
+      --bg-mid: #151414;
+      --text: #f7f3ee;
+      --muted: #cbbeb3;
+      --accent: #d9b99b;  /* soft gold-rose */
+      --accent-2: #9a7b6f;
+      --shadow: 0 10px 40px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html, body { height: 100%; }
+    body{
+      margin:0; color:var(--text); background: var(--bg-dark); overflow-x: hidden;
+      font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* Global utilities */
+    .container{ width:min(1100px, 92%); margin:0 auto; }
+    .center{ text-align:center; }
+    .lead{ font-size:1.2rem; line-height:1.9; color:#efe9e2; }
+    .muted{ color:var(--muted); }
+
+    /* HERO */
+    .hero{
+      position:relative; min-height:100svh; display:grid; place-items:center; overflow:hidden;
+      background: radial-gradient(60% 60% at 50% 40%, rgba(217,185,155,.25), rgba(0,0,0,0) 50%),
+                  linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.85)),
+                  url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .hero:before{
+      content:""; position:absolute; inset:-30% -10%; background: radial-gradient(40% 40% at 50% 20%, rgba(255,255,255,.04), rgba(0,0,0,0));
+      filter: blur(40px); pointer-events:none; animation: drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift{ from{ transform: translateY(-2%) } to{ transform: translateY(2%) } }
+
+    .title-wrap{ position:relative; z-index:2; padding:6rem 0 4rem; }
+    .pretitle{ letter-spacing:.3em; text-transform:uppercase; color:var(--muted); font-weight:600; font-size:.8rem; }
+    h1{
+      margin:.7rem 0 1rem; font-family:'Cormorant Garamond', serif; font-weight:700; line-height:1.1;
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      text-shadow: 0 8px 30px rgba(0,0,0,.6);
+    }
+    .accent-script{ font-family:'Tangerine', cursive; font-size: clamp(2.2rem, 6vw, 3.8rem); color:var(--accent); }
+    .hero p{ max-width:800px; margin:0.5rem auto 0; }
+
+    .scroll-indicator{ position:absolute; bottom:24px; left:50%; transform:translateX(-50%); opacity:.8; font-size:.85rem }
+    .scroll-indicator svg{ display:block; margin:.4rem auto 0; }
+
+    /* Sections */
+    section{ padding: 90px 0; position:relative; }
+    section:nth-child(even){ background: linear-gradient(180deg, var(--bg-mid), #0f0e0e); }
+
+    .section-title{ font-family:'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); margin:0 0 1rem; }
+
+    .two-col{ display:grid; grid-template-columns: 1.1fr .9fr; gap:min(5vw, 56px); align-items:center; }
+    @media (max-width: 900px){ .two-col{ grid-template-columns:1fr; } }
+
+    .card{ background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005)); border:1px solid rgba(255,255,255,.06); border-radius:24px; padding:28px; box-shadow:var(--shadow); }
+
+    .quote{
+      font-family:'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+      color:#f3ece6; line-height:1.5; position:relative; padding-left:22px;
+    }
+    .quote:before{ content:"\201C"; position:absolute; left:0; top:-2px; color:var(--accent); font-size:1.8em; opacity:.6; }
+
+    .gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+    .gallery img{ width:100%; height:280px; object-fit:cover; border-radius:18px; filter:saturate(.92) contrast(1.02); box-shadow:var(--shadow); }
+    @media (max-width: 900px){ .gallery{ grid-template-columns:1fr 1fr; } .gallery img{ height:210px; } }
+
+    .promise-list{ list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+    .promise-list li{ display:flex; gap:12px; align-items:flex-start; }
+    .promise-list b{ color:var(--accent); }
+
+    .ask{
+      background:
+        radial-gradient(60% 60% at 50% 30%, rgba(217,185,155,.18), rgba(0,0,0,0) 50%),
+        linear-gradient(180deg, #0e0d0c, #151414 30%, #0e0d0c 100%),
+        url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+      text-align:center;
+    }
+
+    .big-ask{ font-family:'Cormorant Garamond', serif; font-weight:700; font-size: clamp(2rem, 4.5vw, 3.4rem); margin:0 0 1rem; }
+    .signature{ font-family:'Tangerine', cursive; font-size: clamp(2rem, 5vw, 3.2rem); color:var(--accent); }
+
+    .btn{
+      display:inline-block; border:1px solid rgba(255,255,255,.18); background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      padding:14px 24px; border-radius:999px; color:var(--text); text-decoration:none; font-weight:600; letter-spacing:.02em; transition:.25s ease; box-shadow:var(--shadow);
+    }
+    .btn:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.32); }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(18px); filter: blur(3px); transition: opacity .9s ease, transform .9s ease, filter .9s ease; }
+    .reveal.visible{ opacity:1; transform:none; filter:none; }
+
+    /* Floating particles for cinematic feel */
+    .particle{ position:fixed; top:-10vh; pointer-events:none; opacity:.55; animation: fall linear forwards; }
+    @keyframes fall{ to{ transform: translateY(110vh) rotate(480deg); opacity:0 } }
+
+    /* Sticky audio control */
+    .audio-toggle{ position:fixed; right:18px; bottom:18px; z-index:50; }
+
+    /* Footer */
+    footer, a{ padding:40px 0 70px; text-align:center; color:var(--muted); font-size:.95rem; }
+  </style>
+</head>
+<body>
+  <!-- Music (replace the src with your chosen gentle piano/guitar MP3) -->
+  <!-- Tip: Pixabay Music has free tracks. Example to replace: https://cdn.pixabay.com/download/audio/2021/10/26/audio_c8b0c3.mp3 -->
+  <audio id="bgm" src="/e-pics/francis-thome-andante-religioso-remix-harmonica-110397.mp3" preload="auto" loop></audio>
+
+  <div class="audio-toggle">
+    <button id="audioBtn" class="btn" aria-label="Toggle music">▶︎ Play music</button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="title-wrap container center reveal">
+      <div class="pretitle">With respect and gratitude</div>
+      <h1>Dear Mr. Klyder,</h1>
+      <p class="lead">My name is Shalom. I’m writing to you with sincere admiration for your daughter, <span class="accent-script">Emily</span>, and deep respect for the love and values you’ve raised her with.</p>
+      <div class="scroll-indicator muted">Scroll to read
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- OUR STORY -->
+  <section id="story" class="reveal">
+    <div class="container two-col">
+      <div class="card">
+        <h2 class="section-title">A Quiet Beginning</h2>
+        <p class="lead">It started with small conversations and simple moments. The more I got to know Emily, the more I admired her kindness, strength, and grace. She makes the ordinary feel meaningful, and she inspires me to be better every day.</p>
+        <p class="lead">Over time, I’ve come to value her presence in my life deeply. What we share is built on honesty, care, and understanding. My intentions toward her are sincere, and I hold the highest respect for her and your family.</p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Soft sunset over water" style="width:100%; border-radius:24px; box-shadow:var(--shadow);"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="container two-col">
+      <div>
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop" alt="Warm light and hands" style="width:100%; border-radius:24px; box-shadow:var(--shadow);"/>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Moments That Grew Into Care</h2>
+        <p class="lead">We laughed, we learned, and we listened. With every season, my respect for her deepened. She is thoughtful and brave, gentle and steady, qualities that make her someone I deeply admire.</p>
+        <p class="quote">“I care for her with sincerity and intend to continue building a future that reflects trust, respect, and genuine commitment.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title center">A Few Memories</h2>
+      <p class="muted center" style="margin:-6px 0 22px"></p>
+      <div class="gallery">
+        <img src="/e-pics/WhatsApp Image 2025-10-14 at 23.26.31_816526b6.jpg" alt="Memory 1"/>
+        <img src="/e-pics/WhatsApp Image 2025-10-14 at 23.26.34_6114e60d.jpg" alt="Memory 2"/>
+        <img src="/e-pics/WhatsApp Image 2025-10-14 at 23.28.55_381d71ec.jpg" alt="Memory 3"/>
+        <img src="/e-pics/WhatsApp Image 2025-10-14 at 23.28.56_bd06623c.jpg" alt="Memory 4"/>
+        <img src="/e-pics/WhatsApp Image 2025-10-14 at 23.28.56_ccf22f22.jpg" alt="Memory 5"/>
+        <img src="/e-pics/WhatsApp Image 2025-10-15 at 02.03.30_6df68340.jpg" alt="Memory 6"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="reveal">
+    <div class="container two-col">
+      <div class="card">
+        <h2 class="section-title">My Promise to Emily</h2>
+        <ul class="promise-list lead">
+          <li><span>💍</span> <span><b>To honor her</b> in word and action, and to listen with humility.</span></li>
+          <li><span>🏡</span> <span><b>To build a steady home</b> rooted in faith, patience, and kindness.</span></li>
+          <li><span>🛡️</span> <span><b>To protect her heart</b> and be a partner she can always rely on.</span></li>
+          <li><span>🌱</span> <span><b>To keep growing</b> as a man, as a husband-to-be, and (God willing) as a father one day.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 class="section-title">My Promise to You, Mr. Klyder</h2>
+        <p class="lead">I will love Emily with devotion and respect. I will stand beside her in joy and in challenge. I will protect the trust you’ve placed in her and, if you allow me, in me.</p>
+        <p class="lead">It would be an honor to continue the legacy of care and integrity you’ve modeled.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ASK -->
+  <section class="ask reveal" id="ask">
+    <div class="container">
+      <h2 class="big-ask">With humility and hope, I ask for your blessing</h2>
+      <p class="lead">Mr. Klyder, with deep respect, I would be honored to receive your permission to get engaged to <span class="accent-script">Emily</span>. I promise to cherish her and to honor your trust for the rest of my life.</p>
+      <div style="margin-top:26px">
+        <button class="btn" id="confettiBtn">With all my heart — Shalom</button>
+      </div>
+      <p class="signature" style="margin-top:24px">— Shalom</p>
+    </div>
+  </section>
+
+  <footer>
+     <a href="https://wa.me/923014986517" >
+    If you have any questions or would like to talk, please feel free to reach out.</a>
+  </footer>
+
+  <script>
+    // IntersectionObserver for reveals
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold:.2 });
+    revealEls.forEach(el=> io.observe(el));
+
+    // Floating subtle particles
+    function spawnParticles(){
+      const count = 14;
+      for(let i=0;i<count;i++){
+        const s = document.createElement('div');
+        s.className = 'particle';
+        s.textContent = Math.random()>.5 ? '✧' : '❦';
+        const size = Math.random()*22 + 10;
+        s.style.left = Math.random()*100 + 'vw';
+        s.style.fontSize = size + 'px';
+        s.style.animationDuration = (5 + Math.random()*8) + 's';
+        document.body.appendChild(s);
+        setTimeout(()=> s.remove(), 14000);
+      }
+    }
+    setInterval(spawnParticles, 3200);
+    spawnParticles();
+
+    // Confetti hearts at the Ask
+    function confetti(){
+      for(let i=0;i<70;i++){
+        const h = document.createElement('div');
+        h.className = 'particle';
+        h.textContent = ['💖','💞','💘','💝'][Math.floor(Math.random()*4)];
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.fontSize = (Math.random()*24 + 16) + 'px';
+        h.style.animationDuration = (3 + Math.random()*4) + 's';
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 8000);
+      }
+    }
+    document.getElementById('confettiBtn').addEventListener('click', confetti);
+
+    // Music toggle (autoplay is often blocked; user tap enables)
+    const bgm = document.getElementById('bgm');
+    const btn = document.getElementById('audioBtn');
+    let playing = false;
+    function toggleAudio(){
+      if(!playing){ bgm.volume = 0.6; bgm.play(); playing = true; btn.textContent = '❚❚ Pause music'; }
+      else{ bgm.pause(); playing = false; btn.textContent = '▶︎ Play music'; }
+    }
+    btn.addEventListener('click', toggleAudio);
+
+    // Keyboard access
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'm') toggleAudio(); });
+  </script>
+</body>
+</html>
